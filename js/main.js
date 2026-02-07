@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
     // 1. Mobile Menu Toggle
     const menuBtn = document.querySelector('[data-menu-btn]');
     const menu = document.querySelector('[data-menu]');
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const copyBtn = document.querySelector('[data-copy-email]');
     if (copyBtn) {
         copyBtn.addEventListener('click', () => {
-            const email = "hello@aurastudio.com";
+            const email = "setvik776@gmail.com";
             navigator.clipboard.writeText(email).then(() => {
                 const originalText = copyBtn.innerText;
                 copyBtn.innerText = "Email Copied!";
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const subject = encodeURIComponent(`Inquiry for ${type} Session - ${name}`);
             const body = encodeURIComponent(message);
             
-            window.location.href = `mailto:hello@aurastudio.com?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:setvik776@gmail.com?subject=${subject}&body=${body}`;
         });
     }
 });
