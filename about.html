@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | AURA STUDIO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        auraBg: '#FAFAF7',
+                        auraText: '#111111',
+                        auraMuted: '#5B5B5B',
+                        auraAccent: '#C7B299',
+                        auraBorder: 'rgba(17,17,17,0.12)',
+                    },
+                    fontFamily: {
+                        serif: ['Fraunces', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FAFAF7; color: #111111; -webkit-font-smoothing: antialiased; }
+        .img-placeholder { background: #EDEDEB; display: flex; align-items: center; justify-content: center; color: #5B5B5B; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- Header / Nav -->
+    <header class="sticky top-0 z-50 w-full bg-auraBg/80 backdrop-blur-md border-b border-auraBorder">
+        <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-serif text-2xl font-black tracking-tight">AURA STUDIO</a>
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm uppercase tracking-widest">
+                <a href="portfolio.html" class="hover:text-auraAccent transition-colors">Portfolio</a>
+                <a href="services.html" class="hover:text-auraAccent transition-colors">Services</a>
+                <a href="about.html" class="text-auraAccent">About</a>
+                <a href="contact.html" class="hover:text-auraAccent transition-colors">Contact</a>
+            </nav>
+            <a href="contact.html" class="hidden sm:block px-6 py-2.5 bg-neutral-900 text-white text-xs uppercase tracking-widest rounded-full hover:bg-neutral-800 transition-colors">Book a session</a>
+        </div>
+    </header>
+
+    <main class="py-16 md:py-32">
+        <!-- Split Section -->
+        <section class="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+            <div class="aspect-[3/4] rounded-[3rem] overflow-hidden img-placeholder">
+                <img src="assets/img/about.jpg" alt="About Aura Studio" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                <span>about.jpg</span>
+            </div>
+            <div class="space-y-12">
+                <div class="space-y-6">
+                    <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight">Quiet moments, <span class="italic font-normal">bold stories.</span></h1>
+                    <p class="text-auraMuted text-lg leading-relaxed">Aura Studio was founded on the belief that photography should feel effortless. We move away from forced posing, favoring honest light and calm direction to reveal your most authentic self.</p>
+                </div>
+                <div class="space-y-8 pt-8 border-t border-auraBorder">
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-auraMuted">Experience</span>
+                            <p class="text-2xl font-serif mt-2">12+ Years</p>
+                        </div>
+                        <div>
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-auraMuted">Location</span>
+                            <p class="text-2xl font-serif mt-2">Global</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="portfolio.html" class="px-8 py-3 bg-neutral-900 text-white text-xs uppercase tracking-widest rounded-full font-bold hover:bg-neutral-800 transition-all">View Gallery</a>
+                        <a href="contact.html" class="px-8 py-3 border border-auraBorder text-auraText text-xs uppercase tracking-widest rounded-full font-bold hover:border-auraText transition-all">Connect</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy -->
+        <section class="max-w-6xl mx-auto px-5 py-32 md:py-48 grid md:grid-cols-3 gap-12">
+            <div class="space-y-6 text-center md:text-left">
+                <h3 class="text-xs uppercase tracking-widest font-bold text-auraAccent">Principle 01</h3>
+                <h2 class="font-serif text-3xl font-bold">Intentionality</h2>
+                <p class="text-auraMuted text-sm leading-relaxed">Every frame is captured with a purpose. We believe in quality over quantity, focusing on the few images that truly move the soul.</p>
+            </div>
+            <div class="space-y-6 text-center md:text-left">
+                <h3 class="text-xs uppercase tracking-widest font-bold text-auraAccent">Principle 02</h3>
+                <h2 class="font-serif text-3xl font-bold">Natural Light</h2>
+                <p class="text-auraMuted text-sm leading-relaxed">There is no substitute for the honesty of natural light. We work with the sun and shadows to create depth and warmth.</p>
+            </div>
+            <div class="space-y-6 text-center md:text-left">
+                <h3 class="text-xs uppercase tracking-widest font-bold text-auraAccent">Principle 03</h3>
+                <h2 class="font-serif text-3xl font-bold">Trust</h2>
+                <p class="text-auraMuted text-sm leading-relaxed">Great portraits are born from trust. We create a safe, calm space where you can feel seen and comfortable.</p>
+            </div>
+        </section>
+
+        <!-- Bullets -->
+        <section class="bg-neutral-900 text-white py-24 md:py-32">
+            <div class="max-w-4xl mx-auto px-5 space-y-16">
+                <h2 class="font-serif text-4xl md:text-6xl text-center">What you can expect <br> <span class="italic font-normal">from us.</span></h2>
+                <div class="grid sm:grid-cols-2 gap-12">
+                    <ul class="space-y-6 text-sm uppercase tracking-widest font-medium">
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-auraAccent rounded-full"></span> Full styling guidance</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-auraAccent rounded-full"></span> Concept development</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-auraAccent rounded-full"></span> Calm on-set direction</li>
+                    </ul>
+                    <ul class="space-y-6 text-sm uppercase tracking-widest font-medium">
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-auraAccent rounded-full"></span> 14-day gallery delivery</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-auraAccent rounded-full"></span> Private online showcase</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-auraAccent rounded-full"></span> Full printing rights</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-auraBorder py-20">
+        <div class="max-w-6xl mx-auto px-5 text-center space-y-8">
+            <h2 class="font-serif text-2xl font-black">AURA STUDIO</h2>
+            <p class="text-[10px] uppercase tracking-widest text-auraMuted opacity-50">&copy; 2024 Aura Studio.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

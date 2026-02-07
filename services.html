@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Pricing | AURA STUDIO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        auraBg: '#FAFAF7',
+                        auraText: '#111111',
+                        auraMuted: '#5B5B5B',
+                        auraAccent: '#C7B299',
+                        auraBorder: 'rgba(17,17,17,0.12)',
+                    },
+                    fontFamily: {
+                        serif: ['Fraunces', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FAFAF7; color: #111111; -webkit-font-smoothing: antialiased; }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- Header / Nav -->
+    <header class="sticky top-0 z-50 w-full bg-auraBg/80 backdrop-blur-md border-b border-auraBorder">
+        <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-serif text-2xl font-black tracking-tight">AURA STUDIO</a>
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm uppercase tracking-widest">
+                <a href="portfolio.html" class="hover:text-auraAccent transition-colors">Portfolio</a>
+                <a href="services.html" class="text-auraAccent">Services</a>
+                <a href="about.html" class="hover:text-auraAccent transition-colors">About</a>
+                <a href="contact.html" class="hover:text-auraAccent transition-colors">Contact</a>
+            </nav>
+            <a href="contact.html" class="hidden sm:block px-6 py-2.5 bg-neutral-900 text-white text-xs uppercase tracking-widest rounded-full hover:bg-neutral-800 transition-colors">Book a session</a>
+        </div>
+    </header>
+
+    <main class="py-16 md:py-24">
+        <!-- Header -->
+        <section class="max-w-6xl mx-auto px-5 text-center space-y-8 mb-24">
+            <h1 class="font-serif text-5xl md:text-7xl font-bold tracking-tight">Services</h1>
+            <p class="text-auraMuted max-w-lg mx-auto leading-relaxed">Tailored photography experiences for individuals and brands who value honest storytelling and artistic direction.</p>
+        </section>
+
+        <!-- Service Cards -->
+        <section class="max-w-6xl mx-auto px-5 grid md:grid-cols-3 gap-8 mb-32">
+            <div class="bg-white p-10 rounded-[2rem] border border-auraBorder space-y-8">
+                <h3 class="text-xs uppercase tracking-widest font-bold text-auraAccent">Type 01</h3>
+                <h2 class="font-serif text-3xl font-bold">Portraits</h2>
+                <p class="text-auraMuted text-sm leading-relaxed">Focusing on your essence through calm direction and intentional light. Perfect for personal milestones or headshots.</p>
+                <div class="pt-4 border-t border-auraBorder">
+                    <span class="text-xs uppercase tracking-widest text-auraMuted">Investment</span>
+                    <p class="text-2xl font-serif font-black mt-1">From €250</p>
+                </div>
+            </div>
+            <div class="bg-white p-10 rounded-[2rem] border border-auraBorder space-y-8">
+                <h3 class="text-xs uppercase tracking-widest font-bold text-auraAccent">Type 02</h3>
+                <h2 class="font-serif text-3xl font-bold">Lifestyle</h2>
+                <p class="text-auraMuted text-sm leading-relaxed">Capturing your brand or life in motion. Authentic storytelling that resonates with your audience and values.</p>
+                <div class="pt-4 border-t border-auraBorder">
+                    <span class="text-xs uppercase tracking-widest text-auraMuted">Investment</span>
+                    <p class="text-2xl font-serif font-black mt-1">From €450</p>
+                </div>
+            </div>
+            <div class="bg-white p-10 rounded-[2rem] border border-auraBorder space-y-8">
+                <h3 class="text-xs uppercase tracking-widest font-bold text-auraAccent">Type 03</h3>
+                <h2 class="font-serif text-3xl font-bold">Editorial</h2>
+                <p class="text-auraMuted text-sm leading-relaxed">High-end visual concepts for fashion, magazines, or large-scale brand campaigns with full creative direction.</p>
+                <div class="pt-4 border-t border-auraBorder">
+                    <span class="text-xs uppercase tracking-widest text-auraMuted">Investment</span>
+                    <p class="text-2xl font-serif font-black mt-1">Custom Quote</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison / Packages -->
+        <section class="max-w-6xl mx-auto px-5 mb-32 overflow-x-auto">
+            <h2 class="font-serif text-3xl md:text-5xl font-bold mb-16 text-center">Session Packages</h2>
+            <table class="w-full text-left border-collapse min-w-[600px]">
+                <thead>
+                    <tr class="text-xs uppercase tracking-widest font-bold text-auraMuted border-b border-auraBorder">
+                        <th class="py-6 px-4">Feature</th>
+                        <th class="py-6 px-4">Essential</th>
+                        <th class="py-6 px-4 text-auraText">Signature</th>
+                        <th class="py-6 px-4">Editorial</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-b border-auraBorder/50">
+                        <td class="py-6 px-4 font-bold uppercase tracking-tighter text-[10px]">Shoot Time</td>
+                        <td class="py-6 px-4">1 Hour</td>
+                        <td class="py-6 px-4">2 Hours</td>
+                        <td class="py-6 px-4">Full Day</td>
+                    </tr>
+                    <tr class="border-b border-auraBorder/50">
+                        <td class="py-6 px-4 font-bold uppercase tracking-tighter text-[10px]">Deliverables</td>
+                        <td class="py-6 px-4">15 Images</td>
+                        <td class="py-6 px-4">40 Images</td>
+                        <td class="py-6 px-4">Full Gallery</td>
+                    </tr>
+                    <tr class="border-b border-auraBorder/50">
+                        <td class="py-6 px-4 font-bold uppercase tracking-tighter text-[10px]">Styling Support</td>
+                        <td class="py-6 px-4">Basic</td>
+                        <td class="py-6 px-4">Full Concierge</td>
+                        <td class="py-6 px-4">Creative Team</td>
+                    </tr>
+                    <tr>
+                        <td class="py-6 px-4"></td>
+                        <td class="py-6 px-4 font-serif font-black text-xl">€250</td>
+                        <td class="py-6 px-4 font-serif font-black text-xl">€550</td>
+                        <td class="py-6 px-4 font-serif font-black text-xl">Custom</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- FAQ -->
+        <section class="max-w-3xl mx-auto px-5 mb-32">
+            <h2 class="font-serif text-3xl md:text-5xl font-bold mb-16 text-center">Common Inquiries</h2>
+            <div class="space-y-4">
+                <div class="border border-auraBorder rounded-3xl overflow-hidden bg-white">
+                    <button data-acc-btn class="w-full p-6 text-left flex justify-between items-center font-bold text-xs uppercase tracking-widest">
+                        <span>How soon will I receive my images?</span>
+                        <span class="transition-transform duration-300">↓</span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 bg-auraBg/30">
+                        <p class="p-6 pt-0 text-auraMuted text-sm leading-relaxed">Proofing galleries are sent within 3 days. Your final, high-resolution retouched gallery is delivered within 14 days via a private online showcase.</p>
+                    </div>
+                </div>
+                <div class="border border-auraBorder rounded-3xl overflow-hidden bg-white">
+                    <button data-acc-btn class="w-full p-6 text-left flex justify-between items-center font-bold text-xs uppercase tracking-widest">
+                        <span>Do you travel for sessions?</span>
+                        <span class="transition-transform duration-300">↓</span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 bg-auraBg/30">
+                        <p class="p-6 pt-0 text-auraMuted text-sm leading-relaxed">Yes, I frequently travel for lifestyle and brand projects. Travel costs are calculated based on location and discussed during our inquiry phase.</p>
+                    </div>
+                </div>
+                <div class="border border-auraBorder rounded-3xl overflow-hidden bg-white">
+                    <button data-acc-btn class="w-full p-6 text-left flex justify-between items-center font-bold text-xs uppercase tracking-widest">
+                        <span>What should I wear?</span>
+                        <span class="transition-transform duration-300">↓</span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 bg-auraBg/30">
+                        <p class="p-6 pt-0 text-auraMuted text-sm leading-relaxed">Upon booking, you'll receive a curated styling guide. We recommend neutral tones and timeless pieces that allow your personality to remain the focus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Band -->
+        <section class="max-w-6xl mx-auto px-5 mb-24">
+            <div class="bg-auraAccent rounded-[3rem] p-12 md:p-24 text-center space-y-12">
+                <h2 class="font-serif text-4xl md:text-6xl text-auraText leading-tight">Ready to start?</h2>
+                <p class="text-auraText/70 max-w-sm mx-auto">Fill out our inquiry form to secure your preferred date and session concept.</p>
+                <a href="contact.html" class="inline-block px-12 py-5 bg-neutral-900 text-white text-sm uppercase tracking-widest rounded-full font-bold hover:scale-105 transition-all">Secure a Date</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-auraBorder py-20">
+        <div class="max-w-6xl mx-auto px-5 text-center space-y-8">
+            <h2 class="font-serif text-2xl font-black">AURA STUDIO</h2>
+            <p class="text-[10px] uppercase tracking-widest text-auraMuted opacity-50">&copy; 2024 Aura Studio.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

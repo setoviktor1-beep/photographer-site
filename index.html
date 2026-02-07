@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA STUDIO | Fine Art Photography</title>
+    <meta name="description" content="Portrait & lifestyle photography — calm direction, honest light.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        auraBg: '#FAFAF7',
+                        auraText: '#111111',
+                        auraMuted: '#5B5B5B',
+                        auraAccent: '#C7B299',
+                        auraBorder: 'rgba(17,17,17,0.12)',
+                    },
+                    fontFamily: {
+                        serif: ['Fraunces', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FAFAF7; color: #111111; -webkit-font-smoothing: antialiased; }
+        .hero-img-container { aspect-ratio: 4/5; background: #E5E5E2; overflow: hidden; border-radius: 2rem; }
+        .img-placeholder { background: #EDEDEB; display: flex; align-items: center; justify-content: center; color: #5B5B5B; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- Header / Nav -->
+    <header class="sticky top-0 z-50 w-full bg-auraBg/80 backdrop-blur-md border-b border-auraBorder">
+        <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-serif text-2xl font-black tracking-tight">AURA STUDIO</a>
+            
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm uppercase tracking-widest">
+                <a href="portfolio.html" class="hover:text-auraAccent transition-colors">Portfolio</a>
+                <a href="services.html" class="hover:text-auraAccent transition-colors">Services</a>
+                <a href="about.html" class="hover:text-auraAccent transition-colors">About</a>
+                <a href="contact.html" class="hover:text-auraAccent transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="contact.html" class="hidden sm:block px-6 py-2.5 bg-neutral-900 text-white text-xs uppercase tracking-widest rounded-full hover:bg-neutral-800 transition-colors">Book a session</a>
+                <button data-menu-btn aria-expanded="false" class="md:hidden p-2 text-auraText">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div data-menu class="hidden md:hidden absolute top-20 left-0 w-full bg-auraBg border-b border-auraBorder flex-col p-8 gap-6 text-center font-serif text-2xl italic">
+            <a href="portfolio.html">Portfolio</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="max-w-6xl mx-auto px-5 py-12 md:py-24 grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <div class="space-y-4">
+                    <span class="text-xs uppercase tracking-[0.3em] text-auraMuted font-semibold">EST. MMXXIV</span>
+                    <h1 class="font-serif text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-auraText">
+                        Photographs that feel like you — <span class="italic font-normal">elevated</span>, effortless, lasting.
+                    </h1>
+                </div>
+                <p class="text-auraMuted text-lg max-w-md leading-relaxed">
+                    For portraits, lifestyle, and editorial-inspired sessions. Guided posing, clean retouching, and images built for real life and strong personal brands.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="portfolio.html" class="px-8 py-4 bg-neutral-900 text-white text-sm uppercase tracking-widest rounded-full hover:bg-neutral-800 transition-all">View Gallery</a>
+                    <a href="services.html" class="px-8 py-4 border border-auraBorder text-auraText text-sm uppercase tracking-widest rounded-full hover:border-auraText transition-all">Pricing</a>
+                </div>
+            </div>
+            <div class="hero-img-container img-placeholder">
+                <img src="assets/img/hero.jpg" alt="Hero Photography" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                <span>hero.jpg</span>
+            </div>
+        </section>
+
+        <!-- Selected Work -->
+        <section class="bg-white py-20 md:py-32">
+            <div class="max-w-6xl mx-auto px-5 space-y-16">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+                    <div class="space-y-4">
+                        <h2 class="font-serif text-4xl font-bold tracking-tight">Selected Work</h2>
+                        <p class="text-auraMuted max-w-sm">A glimpse into recent sessions and editorial projects.</p>
+                    </div>
+                    <a href="portfolio.html" class="text-sm uppercase tracking-widest font-bold border-b-2 border-auraText pb-1">All Projects</a>
+                </div>
+                
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <a href="portfolio.html" class="group block space-y-6">
+                        <div class="aspect-[3/4] bg-auraBg rounded-3xl overflow-hidden img-placeholder">
+                            <img src="assets/img/portfolio-01.jpg" alt="Work" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 hidden" onload="this.classList.remove('hidden')">
+                            <span>portfolio-01.jpg</span>
+                        </div>
+                        <h3 class="font-serif text-xl group-hover:italic transition-all">Portrait Sessions</h3>
+                    </a>
+                    <a href="portfolio.html" class="group block space-y-6">
+                        <div class="aspect-[3/4] bg-auraBg rounded-3xl overflow-hidden img-placeholder">
+                            <img src="assets/img/portfolio-02.jpg" alt="Work" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 hidden" onload="this.classList.remove('hidden')">
+                            <span>portfolio-02.jpg</span>
+                        </div>
+                        <h3 class="font-serif text-xl group-hover:italic transition-all">Lifestyle & Brand</h3>
+                    </a>
+                    <a href="portfolio.html" class="group block space-y-6 sm:col-span-2 lg:col-span-1">
+                        <div class="aspect-[3/4] bg-auraBg rounded-3xl overflow-hidden img-placeholder">
+                            <img src="assets/img/portfolio-03.jpg" alt="Work" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 hidden" onload="this.classList.remove('hidden')">
+                            <span>portfolio-03.jpg</span>
+                        </div>
+                        <h3 class="font-serif text-xl group-hover:italic transition-all">Editorial Work</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="max-w-6xl mx-auto px-5 py-24 md:py-32">
+            <div class="grid md:grid-cols-3 gap-16">
+                <div class="space-y-6">
+                    <span class="font-serif text-6xl italic text-auraAccent/30">01</span>
+                    <h3 class="text-xl font-bold uppercase tracking-widest">Inquiry</h3>
+                    <p class="text-auraMuted leading-relaxed">Tell me about your vision. We'll discuss concepts, locations, and styling to ensure your session is perfectly tailored to you.</p>
+                </div>
+                <div class="space-y-6">
+                    <span class="font-serif text-6xl italic text-auraAccent/30">02</span>
+                    <h3 class="text-xl font-bold uppercase tracking-widest">The Session</h3>
+                    <p class="text-auraMuted leading-relaxed">A relaxed environment with calm direction. I focus on honest light and effortless movement to capture your most authentic self.</p>
+                </div>
+                <div class="space-y-6">
+                    <span class="font-serif text-6xl italic text-auraAccent/30">03</span>
+                    <h3 class="text-xl font-bold uppercase tracking-widest">Delivery</h3>
+                    <p class="text-auraMuted leading-relaxed">Your high-resolution, professionally retouched gallery is delivered within 14 days, ready for print and digital showcase.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Band -->
+        <section class="max-w-6xl mx-auto px-5 mb-24">
+            <div class="bg-neutral-900 rounded-[3rem] p-12 md:p-24 text-center space-y-12">
+                <h2 class="font-serif text-4xl md:text-6xl text-white leading-tight">Ready to document <br> <span class="italic font-normal">your story</span>?</h2>
+                <a href="contact.html" class="inline-block px-12 py-5 bg-white text-neutral-900 text-sm uppercase tracking-widest rounded-full font-bold hover:scale-105 transition-all">Book your date</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-auraBorder py-20">
+        <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-4 gap-12">
+            <div class="md:col-span-2 space-y-6">
+                <h2 class="font-serif text-2xl font-black">AURA STUDIO</h2>
+                <p class="text-auraMuted max-w-xs">Calm direction, honest light. Capturing elevated moments for brands and individuals.</p>
+            </div>
+            <div class="space-y-6">
+                <h3 class="text-xs uppercase tracking-widest font-bold">Explore</h3>
+                <nav class="flex flex-col gap-4 text-sm text-auraMuted">
+                    <a href="portfolio.html" class="hover:text-auraText">Portfolio</a>
+                    <a href="services.html" class="hover:text-auraText">Pricing</a>
+                    <a href="about.html" class="hover:text-auraText">About</a>
+                    <a href="contact.html" class="hover:text-auraText">Contact</a>
+                </nav>
+            </div>
+            <div class="space-y-6">
+                <h3 class="text-xs uppercase tracking-widest font-bold">Follow</h3>
+                <nav class="flex flex-col gap-4 text-sm text-auraMuted">
+                    <a href="#" class="hover:text-auraText">Instagram</a>
+                    <a href="#" class="hover:text-auraText">Pinterest</a>
+                    <a href="#" class="hover:text-auraText">LinkedIn</a>
+                </nav>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-5 mt-20 pt-8 border-t border-auraBorder flex flex-col md:row-row justify-between gap-4 text-[10px] uppercase tracking-widest text-auraMuted">
+            <span>&copy; 2024 Aura Studio. All rights reserved.</span>
+            <span>Handcrafted for photographers.</span>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
