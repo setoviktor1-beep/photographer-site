@@ -1,0 +1,14 @@
+{
+  "name": "photographer-site",
+  "version": "1.0.0",
+  "description": "AURA STUDIO - Photographer Portfolio on GitHub Pages",
+  "scripts": {
+    "build": "node scripts/build-static.js",
+    "validate": "node scripts/validate-metadata.js",
+    "dev": "npx http-server dist -p 8000"
+  },
+  "devDependencies": {
+    "html-validate": "^9.0.0",
+    "linkinator": "^6.0.0"
+  }
+}

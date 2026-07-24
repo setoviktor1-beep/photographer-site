@@ -1,0 +1,112 @@
+name: Build and Deploy Photographer Static Site
+
+on:
+  workflow_dispatch:
+    inputs:
+      cms_sha:
+        description: 'CMS commit SHA to deploy'
+        required: false
+  repository_dispatch:
+    types: [photographer-publish]
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: photographer-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CMS_API_URL: https://cms.sitestudio.lt
+  BASE_PATH: /photographer-site
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      pages_artifact: ${{ steps.upload_artifact.outputs.artifact_name }}
+    steps:
+      - name: Checkout photographer-site
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24.15.0
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch published content from CMS
+        id: fetch_content
+        run: |
+          set -euo pipefail
+          echo "Fetching published content from CMS..."
+          RESPONSE=$(curl -sSf -H "Accept: application/json" \
+            "${CMS_API_URL}/public/photographer/content")
+          echo "$RESPONSE" > cms-content.json
+          
+          # Validate response
+          if ! jq -e '.pages' cms-content.json > /dev/null; then
+            echo "Error: Invalid CMS response"
+            cat cms-content.json
+            exit 1
+          fi
+          echo "Content fetched successfully"
+
+      - name: Generate static HTML
+        run: |
+          set -euo pipefail
+          node scripts/build-static.js
+
+      - name: Validate HTML
+        run: |
+          set -euo pipefail
+          npx html-validate dist/**/*.html --formatter json || true
+
+      - name: Validate links
+        run: |
+          set -euo pipefail
+          npx linkinator dist --skip "https://instagram.com,https://facebook.com,https://linkedin.com,https://twitter.com" --recurse
+
+      - name: Validate metadata
+        run: |
+          set -euo pipefail
+          node scripts/validate-metadata.js
+
+      - name: Upload Pages artifact
+        id: upload_artifact
+        uses: actions/upload-pages-artifact@937e8f2e20db37a7d4ae0c6250874556d1e3d31e # v4.0.0
+        with:
+          path: ./dist
+          name: photographer-site-${{ github.sha }}
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event_name == 'repository_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@c2884216539f5e5f5e4b3f7c64d4d4f4e3b2a1f0 # v4.0.0
+
+  notify_cms:
+    needs: deploy
+    if: success()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify CMS of successful deployment
+        run: |
+          curl -X POST "${CMS_API_URL}/api/deployments/photographer-site/complete" \
+            -H "Content-Type: application/json" \
+            -d '{"sha": "${{ github.sha }}", "status": "success", "url": "https://setoviktor1-beep.github.io/photographer-site/"}' || true

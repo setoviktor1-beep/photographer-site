@@ -111,17 +111,69 @@
 
     const contactForm = document.querySelector('[data-contact-form]');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(contactForm);
-            const name = formData.get('name');
-            const type = formData.get('type');
-            const message = formData.get('message');
-            
-            const subject = encodeURIComponent(`Inquiry for ${type} Session - ${name}`);
-            const body = encodeURIComponent(message);
-            
-            window.location.href = `mailto:setvik776@gmail.com?subject=${subject}&body=${body}`;
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn ? submitBtn.innerText : '';
+
+            // Honeypot field (hidden from users, bots will fill it)
+            const honeypot = formData.get('website') || '';
+
+            const payload = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                sessionType: formData.get('type') || 'portrait',
+                dates: formData.get('dates') || 'Not specified',
+                message: formData.get('message') || 'No message provided',
+                consentAccepted: true,
+                website: honeypot,
+            };
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerText = 'Sending...';
+            }
+
+            try {
+                const response = await fetch('https://cms.sitestudio.lt/public/photographer/booking', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+
+                if (response.ok || response.status === 202) {
+                    if (submitBtn) {
+                        submitBtn.innerText = 'Inquiry Sent!';
+                        submitBtn.style.background = '#2d7a2d';
+                    }
+                    contactForm.reset();
+                    setTimeout(() => {
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.innerText = originalText;
+                            submitBtn.style.background = '';
+                        }
+                    }, 4000);
+                } else if (response.status === 429) {
+                    alert('Too many requests. Please try again later.');
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = originalText;
+                    }
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (err) {
+                // Fallback to mailto if CMS is unreachable
+                const subject = encodeURIComponent(`Inquiry for ${payload.sessionType} Session - ${payload.name}`);
+                const body = encodeURIComponent(payload.message);
+                window.location.href = `mailto:setvik776@gmail.com?subject=${subject}&body=${body}`;
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = originalText;
+                }
+            }
         });
     }
 });

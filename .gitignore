@@ -1,0 +1,5 @@
+node_modules/
+dist/
+cms-content.json
+*.log
+.DS_Store
